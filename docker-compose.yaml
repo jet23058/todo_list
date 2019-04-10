@@ -1,0 +1,15 @@
+version: "3"
+services:
+    todo_list:
+      image: todo_list:1.0.0
+      command: /bin/bash -c "service nginx start; service php7.2-fpm start; service cron start; /var/www/html/tsp/supervisorctl update; /var/www/html/tsp/supervisorctl start laravel-worker:*; /bin/bash"
+      tty: true
+      ports:
+          - "8080:80"
+    mysql:
+      image: percona:5.7.20
+      environment: 
+          - MYSQL_ROOT_PASSWORD=Ab5xKz2VTnNPkK7Ba0no
+          - MYSQL_DATABASE=vt_test
+      ports:
+          - "3306:3306"
