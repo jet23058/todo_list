@@ -8,7 +8,7 @@ class Success implements ResponseMacroInterface
 {
     public function run($factory)
     {
-        $factory->macro('success', function ($data = '', $message = '', $options = [], $status = 200, $autoPaginate = false) use ($factory, $that) {
+        $factory->macro('success', function ($data = '', $message = '', $options = [], $status = 200, $autoPaginate = false) use ($factory) {
             $result = [
                 'flag' => true,
                 'message' => $message,
