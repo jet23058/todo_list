@@ -61,3 +61,4 @@ RUN sed -i 's/2M/10M/g' /etc/php/7.2/fpm/php.ini
 RUN sed -i 's/\ 8M/\ 15M/g' /etc/php/7.2/fpm/php.ini
 WORKDIR /var/www/html/todo_list
 RUN composer install
+RUN composer dump-autoload

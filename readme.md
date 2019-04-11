@@ -23,6 +23,7 @@ Project(專案位置)
 1. 選擇需部署的版本
 2. 進對應的build版本執行shell script
 3. 進入要部署的機器，抓取docker image,然後docker-compose up -d
+4. sh run.sh
 ```
 
 ### 程式架構
@@ -37,9 +38,10 @@ Project(專案位置)
 ### api lists
 ```
 * get all to-do lists: {{domain}}/api/to-do
-* get one to-do list: {{domain}}/api/to-do/6
+* get one to-do list: {{domain}}/api/to-do/1
 * create one to-do list: {{domain}}/api/to-do
 * update one to-do list: {{domain}}/api/to-do/1
-* delete one to-do list: {{domain}}/api/to-do/2
-* delete all to-do list: {{domain}}api/to-do/delete-all
+* delete one to-do list: {{domain}}/api/to-do/1
+* delete all to-do list: {{domain}}/api/to-do/delete-all
+* generate a new token: {{domain}}/api/auth
 ```
