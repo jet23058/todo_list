@@ -25,7 +25,7 @@ class JWTAuth
         try {
             $decode = \JWT::decode($token, self::publicKey(), ['RS256']);
             $effectiveTime = Carbon::now()->between(Carbon::parse($decode->issue_at), Carbon::parse($decode->expired_at));
-            return $effectiveTime ? ['result' => true, 'message' => "Verified", 'data' => $decode] : ['result' => false, 'message' => "Token Expired"];
+            return $effectiveTime ? ['result' => true, 'message' => "Verified", 'data' => $decode, 'user' => \App\User::where('name', $decode->username)->first()] : ['result' => false, 'message' => "Token Expired"];
         } catch (\Exception $e) {
             return ['result' => false, 'message' => 'Invalid Token', 'exception' => $e->getMessage()];
         }

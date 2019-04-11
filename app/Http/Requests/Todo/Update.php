@@ -21,6 +21,8 @@ class Update extends JsonRequest
     {
         return [
             'id.exists' => trans('todo_list.validation.update.id.exists'),
+            'title.required' => trans('todo_list.validation.update.title.required'),
+            'content.required' => trans('todo_list.validation.update.content.required'),
         ];
     }
 

@@ -11,6 +11,12 @@ class TodoListRepository
         return "App\\Models\\TodoList";
     }
 
+    public function check(): bool
+    {
+        $count = TodoList::where('user_id', request()->user()->id)->where('id', request()->route('to_do'))->count();
+        return $count > 0;
+    }
+
     public function lists()
     {
         return TodoList::all();
@@ -23,6 +29,7 @@ class TodoListRepository
 
     public function store(array $data): bool
     {
+        $data['user_id'] = request()->user()->id;
         $model = new TodoList;
         $model->fill($data);
         return $model->save();
@@ -43,7 +50,7 @@ class TodoListRepository
     
     public function deleteAll(): bool
     {
-        $model = TodoList::query();
+        $model = TodoList::where('user_id', request()->user()->id);
         return $model->delete();
     }
 }

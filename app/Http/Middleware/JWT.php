@@ -11,7 +11,7 @@ class JWT
         $token = $request->header('Authorization');
         $result = \JWTAuth::verify($token);
         if ($result['result']) {
-            $request['username'] = $result['data']->username;
+            \Auth::loginUsingId($result['user']->id);
             return $next($request);
         } else {
             throw new \Exception('jwt token error.');

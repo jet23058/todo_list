@@ -8,19 +8,34 @@ return [
         'destory' => '待辦事項刪除成功',
     ],
     'validation' => [
+        'init' => '該筆資料不存在',
+        'store' => [
+            'title' => [
+                'required' => 'title 為必填欄位',
+            ],
+            'content' => [
+                'required' => 'content 為必填欄位',
+            ],
+        ],
         'show' => [
             'id' => [
-                'exists' => '該筆資料不存在'
+                'exists' => '該筆資料不存在',
             ],
         ],
         'update' => [
             'id' => [
-                'exists' => '該筆資料不存在'
+                'exists' => '該筆資料不存在',
+            ],
+            'title' => [
+                'required' => 'title 為必填欄位',
+            ],
+            'content' => [
+                'required' => 'content 為必填欄位',
             ],
         ],
         'destory' => [
             'id' => [
-                'exists' => '該筆資料不存在'
+                'exists' => '該筆資料不存在',
             ],
         ],
     ],

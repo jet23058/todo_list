@@ -19,7 +19,8 @@ class StoreInfo extends JsonRequest
     public function messages()
     {
         return [
-
+            'title.required' => trans('todo_list.validation.store.title.required'),
+            'content.required' => trans('todo_list.validation.store.content.required'),
         ];
     }
 }

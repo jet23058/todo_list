@@ -11,6 +11,11 @@ class TodoService
         $this->repository = $repository;
     }
 
+    public function check(): bool
+    {
+        return $this->repository->check();
+    }
+
     public function lists()
     {
         return $this->repository->lists();

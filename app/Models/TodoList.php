@@ -15,6 +15,6 @@ class TodoList extends Model
 
     protected $table = "todo_lists";
     protected $fillable = [
-        'title', 'content', 'attachment', 'done_at',
+        'user_id', 'title', 'content', 'attachment', 'done_at',
     ];
 }

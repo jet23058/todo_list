@@ -19,6 +19,11 @@ class TodoAPIController extends BaseController
     public function __construct(TodoService $todoService)
     {
         $this->service = $todoService;
+
+        $this->middleware(function ($request, $next) {
+            throw_if(!$this->service->check(), new \Exception(trans('todo_list.validation.init')));
+            return $next($request);
+        }, ['except' => ['index', 'create', 'store', 'deleteAll']]);
     }
 
     /**
